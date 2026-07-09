@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery & Recovery System</title>
+    <title>Gallery | Amazing Sites</title>
     <style>
         * {
             margin: 0;
@@ -34,36 +34,6 @@
             background-color: white;
             color: purple;
             border-radius: 4px;
-        }
-
-        /* DYNAMIC PASSWORD RECOVERY BANNER */
-        .recovery-box {
-            display: none;
-            background: #fff3cd;
-            border: 2px solid #ffeeba;
-            color: #856404;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .recovery-box input {
-            padding: 8px;
-            width: 60%;
-            margin-right: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .recovery-box button {
-            background: purple;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
         }
 
         h1 {
@@ -112,16 +82,9 @@
 <body>
 
     <ul class="nav">
-        <li><a href="index.html">← Back to Home</a></li>
-        <li><a href="#" onclick="showRecovery()">Password Recovery</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recovery.html">Password Recovery</a></li>
     </ul>
-
-    <div class="recovery-box" id="recoverySection">
-        <h3>Password Reset Portal</h3>
-        <p style="margin-bottom: 10px;">Enter your registered SBTE username to get a reset verification pin:</p>
-        <input type="text" id="recoverUser" placeholder="Enter username...">
-        <button onclick="processRecovery()">Send Code</button>
-    </div>
 
     <h1>AMAZING SITES GALLERY</h1>
     <hr style="width: 100px; margin: 0 auto; border: 2px solid purple;">
@@ -163,29 +126,9 @@
         </tr>
     </table>
 
-    <p style="text-align: center; margin-top: 30px; color: #555; font-weight: 500;">
-    Made with ❤️ by Priti Poddar
-</p>
-    <script>
-        function showRecovery() {
-            document.getElementById('recoverySection').style.display = 'block';
-        }
+    <p style="text-align: center; margin-top: 40px; color: #555; font-weight: 500; padding-bottom: 20px;">
+        Made with ❤️ by Priti Poddar
+    </p>
 
-        function processRecovery() {
-            let user = document.getElementById('recoverUser').value;
-            if(user) {
-                alert("Reset link successfully dispatched for user account: " + user);
-                document.getElementById('recoverySection').style.display = 'none';
-            } else {
-                alert("Please enter a valid username.");
-            }
-        }
-
-        // Automatic action detector if jumping from page 1
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('action') === 'recover') {
-            showRecovery();
-        }
-    </script>
 </body>
 </html>
