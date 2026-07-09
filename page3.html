@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery & Recovery System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav {
+            background-color: black;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 6px 12px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: white;
+            color: purple;
+            border-radius: 4px;
+        }
+
+        /* DYNAMIC PASSWORD RECOVERY BANNER */
+        .recovery-box {
+            display: none;
+            background: #fff3cd;
+            border: 2px solid #ffeeba;
+            color: #856404;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .recovery-box input {
+            padding: 8px;
+            width: 60%;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .recovery-box button {
+            background: purple;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0 10px 0;
+        }
+
+        table {
+            width: 95%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: solid 2px #ddd;
+            padding: 20px;
+            text-align: center;
+            vertical-align: top;
+            width: 33.33%;
+        }
+
+        img {
+            width: 100%;
+            max-width: 380px;
+            height: 250px;
+            object-fit: cover;
+            border: solid 2px purple;
+            margin-bottom: 10px;
+        }
+
+        td h1 {
+            font-size: 1.1rem;
+            color: purple;
+            margin: 10px 0;
+        }
+
+        td h3 {
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: #555;
+            line-height: 1.5;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="nav">
+        <li><a href="index.html">← Back to Home</a></li>
+        <li><a href="#" onclick="showRecovery()">Password Recovery</a></li>
+    </ul>
+
+    <div class="recovery-box" id="recoverySection">
+        <h3>Password Reset Portal</h3>
+        <p style="margin-bottom: 10px;">Enter your registered SBTE username to get a reset verification pin:</p>
+        <input type="text" id="recoverUser" placeholder="Enter username...">
+        <button onclick="processRecovery()">Send Code</button>
+    </div>
+
+    <h1>AMAZING SITES GALLERY</h1>
+    <hr style="width: 100px; margin: 0 auto; border: 2px solid purple;">
+
+    <table>
+        <tr>
+            <td>
+                <img src="egypt.jpg" alt="Egypt">
+                <h1>THE PYRAMID AND SPHINX OF GIZA</h1>
+                <h3>No trip to Egypt is complete without a visit to the famous pyramids of Giza, classified as one of the seven wonders of the world.</h3>
+            </td>
+            <td>
+                <img src="mounteverest.jpg" alt="Mount Everest">
+                <h1>MOUNT EVEREST</h1>
+                <h3>Mount Everest is Earth's highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas.</h3>
+            </td>
+            <td>
+                <img src="waterfall.jfif" alt="Waterfall">
+                <h1>WATERFALL</h1>
+                <h3>A waterfall is a river or other body of water's steep fall over a rocky ledge into a plunge pool below.</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="desert.jfif" alt="Desert">
+                <h1>DESERT</h1>
+                <h3>Deserts are areas that receive very little precipitation. Far from being empty, they host unique wildlife varieties.</h3>
+            </td>
+            <td>
+                <img src="landscape.jpg" alt="Landscape">
+                <h1>LANDSCAPE</h1>
+                <h3>A landscape is the visible features of an area of land, its landforms, and how they integrate beautifully.</h3>
+            </td>
+            <td>
+                <img src="iceland.jfif" alt="Iceland">
+                <h1>ICELAND</h1>
+                <h3>Iceland is a Nordic island country in the North Atlantic Ocean and the most sparsely populated country in Europe.</h3>
+            </td>
+        </tr>
+    </table>
+
+    <p style="text-align: center; margin-top: 30px; color:#aaa;">&copy; 2026 Designed professionally by Priti Kumari.</p>
+
+    <script>
+        function showRecovery() {
+            document.getElementById('recoverySection').style.display = 'block';
+        }
+
+        function processRecovery() {
+            let user = document.getElementById('recoverUser').value;
+            if(user) {
+                alert("Reset link successfully dispatched for user account: " + user);
+                document.getElementById('recoverySection').style.display = 'none';
+            } else {
+                alert("Please enter a valid username.");
+            }
+        }
+
+        // Automatic action detector if jumping from page 1
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('action') === 'recover') {
+            showRecovery();
+        }
+    </script>
+</body>
+</html>
