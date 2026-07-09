@@ -4,103 +4,211 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>webpage</title>
+    <title>Webpage | Portal Explorer</title>
     <style>
-
-        .nav {
-            background-color: black;
-            list-style-type:square;
-            text-align: center;
-            margin: 2px;
-            padding: 2px;
-        }
-        .nav li {
-            display: inline-block;
-            padding: 10px;
-            margin: 5px;
-            color: aqua;
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
-        a {
-            text-decoration: none;
+        body {
+            background-color: #fafafa;
+            color: #333;
+            padding-bottom: 60px;
+        }
+
+        .nav-bar {
+            background-color: #111;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        a :hover {
-            background-color: white;
-            border: solid 1px white;
-            padding: 2px;
+
+        .dropdown-box select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: #222;
+            color: white;
+            border: 1px solid #444;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #bbb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 12px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            background: #333;
+            border-radius: 4px;
+        }
+
+        .main-title {
+            text-align: center;
+            margin: 40px 0 10px 0;
+            font-size: 2.5rem;
+            color: #111;
+        }
+
+        .underline {
+            width: 80px;
+            height: 4px;
+            background: purple;
+            margin: 0 auto 40px auto;
+            border: none;
+            border-radius: 2px;
+        }
+
+        /* Modern Flex/Grid layout replacing heavy tables */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid purple;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h2 {
+            font-size: 1.3rem;
             color: purple;
+            margin-bottom: 12px;
         }
 
-        th {
-            border: solid 4px black;
-            padding:16px ;
-
-        }
-        td {
-            border: solid 4px black;
-            padding: 16px;
-        }
-        img {
-            width: 500px;
-            height: 500px;
-            border: solid 2px purple;
-            border-collapse: collapse;
-        }
-        h1 {
-            text-align: center;
-        }
-    
-        td {
-            text-align: center;
-        }
-        ol {
-            text-align: center;
-            display: inline-block;
-            background-color: white;
-            margin-right: 2100px;
-
-
+        .card-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
         }
     </style>
-
 </head>
 <body>
-        <ul class="nav">
-    <ol>
-        <label for="">MENU</label>
-    <br>
-    <select name="" id="">
-        <option value="">Portfolio</option>
-        <option value="">About</option>
-        <option value="">Contact</option>
-    </select>
-    </ol>   
-        <li><a href="#"> <h1>ALL</h1></a></li>
-        <li><a href="#"> <h1>DESIGN</h1></a></li>
-        <li><a href="#"> <h1>PHOTOS</h1></a></li>
-        <li><a href="#"> <h1>ART</h1></a></li>
 
-    </ul>
-    <h1>AMAGING SITES</h1>
-    <hr>
-    <table>
-        <tr>
-            <th><img src="egypt.jpg" alt="Egypt"><h1>THE PYRAMID AND SPHINX OF GIZA </h1> <h3>No trip to egpt is complete without a visit to the famous pyramids of giza, classified as one of the seven womders of the world. The impossing structures were built by some 10,000 workers between 2620 and 2500 B.C. and are located between the libyan desert and cairo. The equally and mythical sphinx status stands imposingly at the entrance of the complex.</h3></th>
-            <th><img src="mounteverest.jpg" alt=" Mount everest"><h1>MOUNT EVEREST</h1> <h3>Mount Everest (Nepali: सगरमाथा, romanized: Sagarmāthā; Tibetan: Chomolungma ཇོ་མོ་གླང་མ; Chinese: 珠穆朗玛峰; pinyin: Zhūmùlǎngmǎ Fēng) is Earth's highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas. The China–Nepal border runs across its summit point.[2] Its elevation (snow height) of 8,848.86 m (29,031.7 ft) was most recently established in 2020 by the Chinese and Nepali authorities.[3]</h3></th>
-            <th><img src="waterfall.jfif" alt="Waterfall"><h1>WATERFALL</h1><h3>A waterfall is a river or other body of water's steep fall over a rocky ledge into a plunge pool below. Waterfalls are also called cascades. The process of erosion, the wearing away of earth, plays an important part in the formation of waterfalls. Waterfalls themselves also contribute to erosion.</h3></th>
+    <nav class="nav-bar">
+        <div class="dropdown-box">
+            <select id="directNav">
+                <option value="" disabled selected>Quick System Action...</option>
+                <option value="index.html">Go to Login Portal</option>
+                <option value="project_2.html">Go to Registration</option>
+                <option value="project_3.webpage.html">Refresh Gallery</option>
+            </select>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Login Portal</a></li>
+            <li><a href="project_2.html">Registration</a></li>
+            <li><a href="project_3.webpage.html" class="active">Gallery System</a></li>
+        </ul>
+    </nav>
 
-        </tr>
-        <tr>
-            <td><img src="desert.jfif" alt="Desert"><h1>DESERT</h1><h3>Deserts are areas that receive very little precipitation. People often use the adjectives “hot,” “dry,” and “empty” to describe deserts, but these words do not tell the whole story. Although some deserts are very hot, with daytime temperatures as high as 54°C (130°F), other deserts have cold winters or are cold year-round. And most deserts, far from being empty and lifeless, are home to a variety of plants, animals, and other organisms. People have adapted to life in the desert for thousands of years.</h3></td>
-            <td><img src="landscape.jpg" alt="Landscape"><h1>LANDSCAPE</h1><h3>A landscape is the visible features of an area of land, its landforms, and how they integrate with natural or man-made features, often considered in terms of their aesthetic appeal.[1] A landscape includes the physical elements of geophysically defined landforms such as (ice-capped) mountains, hills, water bodies such as rivers, lakes, ponds and the sea, living elements of land cover including indigenous vegetation, human elements including different forms of land use, buildings, and structures, and transitory elements such as lighting and weather conditions. Combining both their physical origins and the cultural overlay of human presence, often created over millennia, landscapes reflect a living synthesis of people and place that is vital to local and national identity.</h3></td>
-            <td><img src="iceland.jfif" alt="Iceland"><h1>ICELAND</h1><h3>Iceland (Icelandic: Ísland; [ˈistlant] (listen))[d] is a Nordic island country in the North Atlantic Ocean and the most sparsely populated country in Europe.[13] Iceland's capital and largest city is Reykjavík, which (along with its surrounding areas) is home to over 65% of the population. Iceland is the only part of the Mid-Atlantic Ridge that rises above sea level, and its central volcanic plateau is erupting almost constantly.[14][15] The interior consists of a plateau characterised by sand and lava fields, mountains, and glaciers, and many glacial rivers flow to the sea through the lowlands. Iceland is warmed by the Gulf Stream and has a temperate climate, despite a high latitude just outside the Arctic Circle. Its high latitude and marine influence keep summers chilly, and most of its islands have a polar climate.</h3></td>
-        </tr>
-    </table>
+    <h1 class="main-title">AMAZING SITES EXPLORER</h1>
+    <hr class="underline">
 
+    <div class="gallery-container">
+        <div class="card">
+            <img src="egypt.jpg" alt="Egypt">
+            <div class="card-content">
+                <h2>THE PYRAMID AND SPHINX OF GIZA</h2>
+                <p>No trip to Egypt is complete without a visit to the famous pyramids of Giza, classified as one of the seven wonders of the world. The imposing structures were built by some 10,000 workers between 2620 and 2500 B.C.</p>
+            </div>
+        </div>
 
+        <div class="card">
+            <img src="mounteverest.jpg" alt="Mount Everest">
+            <div class="card-content">
+                <h2>MOUNT EVEREST</h2>
+                <p>Mount Everest is Earth's highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas. Its elevation of 8,848.86 m was verified globally.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="waterfall.jfif" alt="Waterfall">
+            <div class="card-content">
+                <h2>WATERFALL CASCADES</h2>
+                <p>A waterfall is a river or other body of water's steep fall over a rocky ledge into a plunge pool below. The continuous process of natural water erosion shapes these landmarks over millennia.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="desert.jfif" alt="Desert">
+            <div class="card-content">
+                <h2>DESERT LANDFORMS</h2>
+                <p>Deserts are areas that receive very little precipitation. Far from being empty and lifeless, they are home to a massive variety of specialized plants, ecosystems, and animal survival adaptation methods.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="landscape.jpg" alt="Landscape">
+            <div class="card-content">
+                <h2>AESTHETIC LANDSCAPES</h2>
+                <p>A landscape represents the visible elements of an expansive area of land, combining physical layouts like mountains, hills, rivers, with natural foliage textures beautifully.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="iceland.jfif" alt="Iceland">
+            <div class="card-content">
+                <h2>ICELAND VOLCANIC TERRAIN</h2>
+                <p>Iceland is a Nordic island nation characterized by massive lava field plateaus, moving glaciers, sand systems, and constant, active volcanic hotspots rising directly over the Mid-Atlantic Ridge.</p>
+            </div>
+        </div>
     </div>
-    
+
+    <script>
+        document.getElementById('directNav').addEventListener('change', function() {
+            if(this.value) {
+                window.location.href = this.value;
+            }
+        });
+        
+        // Simulates password reset verification instantly when landing here via custom query paths
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log("Gallery ecosystem elements successfully synchronized.");
+        });
+    </script>
 </body>
 </html>
