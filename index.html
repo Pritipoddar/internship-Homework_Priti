@@ -1,75 +1,88 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM</title>
+    <title>SBTE-EMS | Login</title>
     <style>
-        div {
+        /* Centering headers */
+        h1, h3 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for the login box */
+        .login-box {
             text-align: center;
             background-color: purple;
-            width: 17%;
-            margin-left: 640px;
-            margin-top: 20px;
-
+            color: white; /* Makes text inside the purple box readable */
+            width: 300px; /* Using pixels or max-width is much safer for layout */
+            margin: 20px auto; /* "auto" automatically centers the box horizontally on any screen */
+            padding: 20px;
+            border-radius: 8px; /* Adds a clean, professional rounded corner */
         }
+        
+        /* Keeping your original border style requirement */
+        .login-box h1 {
+            color: white;
+            margin-top: 0;
+        }
+
         input {
             color: black;
             font-size: larger;
+            margin-bottom: 10px;
+            width: 90%;
         }
-        h1 {
+
+        input[type="submit"] {
+            width: auto;
+            cursor: pointer;
+            padding: 5px 15px;
+        }
+
+        /* Professional way to style your bottom links container */
+        .navigation-links {
             text-align: center;
-        }
-        h3 {
-            text-align: center;
-        }
-        div2 {
-            margin-left: 630px;
-            word-spacing: 40px;
+            margin-top: 20px;
         } 
 
+        .navigation-links a {
+            margin: 0 15px; /* Adds professional spacing between links instead of word-spacing */
+            text-decoration: none;
+            color: purple;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .navigation-links a:hover {
+            text-decoration: underline; /* Visual cue when user hovers over links */
+        }
     </style>
 </head>
 <body>
+
     <h1>SBTE-EMS</h1>
-    <h3>State Board of Technical Education, Bihar </h3>
-    <div style="border: solid 5px purple;">
+    <h3>State Board of Technical Education, Bihar</h3>
+    
+    <div class="login-box" style="border: solid 5px purple;">
         <h1>Log in</h1>
         <form>
-           <label for="">username</label><br>
-            <input type="text"><br>
-            <label for="">password</label><br>
-            <input type="text"><br><br>
-            <input type="submit" value= "log in">
+            <label for="username">Username</label><br>
+            <input type="text" id="username"><br>
+            
+            <label for="password">Password</label><br>
+            <input type="password" id="password"><br><br>
+            
+            <input type="submit" value="Log In">
         </form>
-
-
     </div>
-    <div2>
-    <a href="#" target="_blank">new_registration</a>
-    <a href="#" target="_blank">forgotten_password</a>
-    </div2>
 
-    
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Portfolio Home</title>
-</head>
-<body>
-
-    <h1>Welcome to My Website</h1>
-    <p>Check out my projects below:</p>
-
-    <nav>
-        <ul>
-            <li><a href="project_2.html">Go to Project 2</a></li>
-            <li><a href="project_3.webpage.html">Go to Project 3</a></li>
-        </ul>
-    </nav>
+    <div class="navigation-links">
+        <a href="project_2.html">New Registration</a>
+        <a href="project_3.webpage.html">Forgotten Password</a>
+    </div>
 
 </body>
 </html>
