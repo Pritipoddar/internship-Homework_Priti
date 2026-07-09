@@ -4,85 +4,176 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBTE-EMS | Login</title>
+    <title>SBTE-EMS | Login Portal</title>
     <style>
-        /* Centering headers */
-        h1, h3 {
-            text-align: center;
-            font-family: Arial, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Container for the login box */
-        .login-box {
-            text-align: center;
-            background-color: purple;
-            color: white; /* Makes text inside the purple box readable */
-            width: 300px; /* Using pixels or max-width is much safer for layout */
-            margin: 20px auto; /* "auto" automatically centers the box horizontally on any screen */
-            padding: 20px;
-            border-radius: 8px; /* Adds a clean, professional rounded corner */
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        
-        /* Keeping your original border style requirement */
-        .login-box h1 {
+
+        header {
+            text-align: center;
+            padding: 30px 20px 10px 20px;
+        }
+
+        header h1 {
+            color: #4a0e4e;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        header h3 {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .login-container {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-top: 6px solid #4a0e4e;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #4a0e4e;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #4a0e4e;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #4a0e4e;
             color: white;
-            margin-top: 0;
-        }
-
-        input {
-            color: black;
-            font-size: larger;
-            margin-bottom: 10px;
-            width: 90%;
-        }
-
-        input[type="submit"] {
-            width: auto;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
             cursor: pointer;
-            padding: 5px 15px;
+            transition: background 0.3s ease;
         }
 
-        /* Professional way to style your bottom links container */
-        .navigation-links {
+        .btn-submit:hover {
+            background-color: #310834;
+        }
+
+        footer {
             text-align: center;
-            margin-top: 20px;
-        } 
+            padding: 25px;
+            background: #fff;
+            border-top: 1px solid #e1e4e8;
+        }
+
+        .navigation-links {
+            margin-bottom: 10px;
+        }
 
         .navigation-links a {
-            margin: 0 15px; /* Adds professional spacing between links instead of word-spacing */
+            margin: 0 15px;
             text-decoration: none;
-            color: purple;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
+            color: #4a0e4e;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
         }
 
         .navigation-links a:hover {
-            text-decoration: underline; /* Visual cue when user hovers over links */
+            color: #00bcd4;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-    <h1>SBTE-EMS</h1>
-    <h3>State Board of Technical Education, Bihar</h3>
+    <header>
+        <h1>SBTE-EMS</h1>
+        <h3>State Board of Technical Education, Bihar</h3>
+    </header>
     
-    <div class="login-box" style="border: solid 5px purple;">
-        <h1>Log in</h1>
-        <form>
-            <label for="username">Username</label><br>
-            <input type="text" id="username"><br>
-            
-            <label for="password">Password</label><br>
-            <input type="password" id="password"><br><br>
-            
-            <input type="submit" value="Log In">
-        </form>
-    </div>
+    <main>
+        <div class="login-container">
+            <h2>Log In</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                
+                <button type="submit" class="btn-submit">Sign In</button>
+            </form>
+        </div>
+    </main>
 
-    <div class="navigation-links">
-        <a href="project_2.html">New Registration</a>
-        <a href="project_3.webpage.html">Forgotten Password</a>
-    </div>
+    <footer>
+        <nav class="navigation-links">
+            <a href="project_2.html">New Registration</a>
+            <a href="project_3.webpage.html">Forgotten Password</a>
+        </nav>
+        <p class="copyright">&copy; 2026 SBTE-EMS Bihar. Designed professionally.</p>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page refresh
+            const user = document.getElementById('username').value;
+            alert('Welcome back, ' + user + '! Connection successful.');
+        });
+    </script>
 
 </body>
 </html>
