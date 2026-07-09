@@ -1,74 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBTE-EMS | Login Portal</title>
+    <title>Home | Coding with Priti</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-            min-height: 100vh;
+        nav {
+            position: fixed;
+            background: #1b1b1b;
+            width: 100%;
+            padding: 15px 0;
+            z-index: 12;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .menu {
+            max-width: 1250px;
+            margin: auto;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: space-between;
+            padding: 0 20px;
         }
 
-        header {
+        .menu .logo a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .menu ul {
+            display: inline-flex;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu ul li a:hover, .menu ul li a.active {
+            background: #fff;
+            color: black;
+        }
+
+        .img {
+            background: url('landscape.jpg') no-repeat;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .img::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 20px;
             text-align: center;
-            padding: 30px 20px 10px 20px;
+            z-index: 2;
         }
 
-        header h1 {
-            color: #4a0e4e;
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            font-weight: 700;
+        .center .title {
+            color: #fff;
+            font-size: 55px;
+            font-weight: 600;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
         }
 
-        header h3 {
-            color: #666;
-            font-size: 1.1rem;
-            font-weight: 400;
+        .center .sub_title {
+            color: #fff;
+            font-size: 52px;
+            font-weight: 600;
         }
 
-        .login-container {
+        .center .btns {
+            margin-top: 25px;
+        }
+
+        .center .btns button {
+            height: 55px;
+            width: 170px;
+            border-radius: 30px;
+            border: 2px solid white;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .center .btns button:first-child {
+            color: #fff;
+            background: none;
+        }
+
+        .btns button:first-child:hover {
+            background: white;
+            color: black;
+        }
+
+        .center .btns button:last-child {
+            background: white;
+            color: black;
+        }
+
+        .center .btns button:last-child:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* --- PROFESSIONAL LOGIN MODAL POPUP --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .login-card {
             background: white;
             width: 100%;
             max-width: 400px;
-            margin: 40px auto;
             padding: 35px;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            border-top: 6px solid #4a0e4e;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-top: 6px solid purple;
+            position: relative;
+            text-align: center;
         }
 
-        .login-container h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #4a0e4e;
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .login-card h2 {
+            color: purple;
+            margin-bottom: 5px;
             font-size: 1.8rem;
         }
 
+        .login-card h4 {
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
         .form-group {
-            margin-bottom: 20px;
+            text-align: left;
+            margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
-            font-size: 0.9rem;
-            color: #555;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #444;
         }
 
         .form-group input {
@@ -77,103 +211,109 @@
             border: 2px solid #ddd;
             border-radius: 6px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #4a0e4e;
+            border-color: purple;
         }
 
         .btn-submit {
             width: 100%;
-            background-color: #4a0e4e;
+            background: purple;
             color: white;
             border: none;
-            padding: 14px;
+            padding: 12px;
             font-size: 1rem;
             font-weight: 600;
             border-radius: 6px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            margin-top: 10px;
         }
 
-        .btn-submit:hover {
-            background-color: #310834;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #fff;
-            border-top: 1px solid #e1e4e8;
-        }
-
-        .navigation-links {
-            margin-bottom: 10px;
-        }
-
-        .navigation-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #4a0e4e;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .navigation-links a:hover {
-            color: #00bcd4;
-            text-decoration: underline;
-        }
-
-        .copyright {
+        .modal-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
             font-size: 0.85rem;
-            color: #777;
+        }
+
+        .modal-links a {
+            color: purple;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .modal-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SBTE-EMS</h1>
-        <h3>State Board of Technical Education, Bihar</h3>
-    </header>
-    
-    <main>
-        <div class="login-container">
-            <h2>Log In</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter username" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter password" required>
-                </div>
-                
-                <button type="submit" class="btn-submit">Sign In</button>
-            </form>
-        </div>
-    </main>
+  <nav>
+    <div class="menu">
+      <div class="logo"><a href="#">Coding with priti</a></div>
+      <ul>
+        <li><a class="active" onclick="toggleModal()">Home / Sign In</a></li>
+        <li><a href="project_3.webpage.html">Gallery System</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <footer>
-        <nav class="navigation-links">
-            <a href="project_2.html">New Registration</a>
-            <a href="project_3.webpage.html">Forgotten Password</a>
-        </nav>
-        <p class="copyright">&copy; 2026 SBTE-EMS Bihar. Designed professionally.</p>
-    </footer>
+  <div class="img"></div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop page refresh
-            const user = document.getElementById('username').value;
-            alert('Welcome back, ' + user + '! Connection successful.');
-        });
-    </script>
+  <div class="center">
+    <div class="title">Create Amazing Website</div>
+    <div class="sub_title">Pure HTML & CSS Only</div>
+    <div class="btns">
+      <button onclick="toggleModal()">Learn More</button>
+      <button onclick="triggerSubscribe()">Subscribe</button>
+    </div>
+  </div>
 
+  <div class="modal-overlay" id="loginModal">
+      <div class="login-card">
+          <span class="close-btn" onclick="toggleModal()">&times;</span>
+          <h2>SBTE-EMS</h2>
+          <h4>State Board of Technical Education, Bihar</h4>
+          
+          <form id="portalLoginForm">
+              <div class="form-group">
+                  <label>USERNAME</label>
+                  <input type="text" placeholder="Enter username" required>
+              </div>
+              <div class="form-group">
+                  <label>PASSWORD</label>
+                  <input type="password" placeholder="Enter password" required>
+              </div>
+              <button type="submit" class="btn-submit">Sign In</button>
+          </form>
+
+          <div class="modal-links">
+              <a onclick="triggerSubscribe()" style="cursor:pointer;">New Registration</a>
+              <a href="project_3.webpage.html?action=recover">Forgotten Password</a>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      function toggleModal() {
+          document.getElementById('loginModal').classList.toggle('active');
+      }
+
+      function triggerSubscribe() {
+          let email = prompt("Enter your email to subscribe to updates:");
+          if(email) {
+              alert("Awesome! Registration initialized for " + email);
+          }
+      }
+
+      document.getElementById('portalLoginForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert("Sign In successful! Welcome to the SBTE Portal dashboard.");
+          toggleModal();
+      });
+  </script>
 </body>
 </html>
