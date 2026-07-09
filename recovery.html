@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBTE-EMS | Account Recovery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .recovery-container {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            margin: 80px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-top: 6px solid purple;
+            text-align: center;
+        }
+
+        .recovery-container h2 {
+            color: purple;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .recovery-container p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: purple;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: purple;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #4a0e4e;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: purple;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="recovery-container">
+            <h2>Account Recovery</h2>
+            <p>Enter your registered SBTE username or email address below, and we will send you a secure verification link to reset your password.</p>
+            
+            <form id="recoveryForm">
+                <div class="form-group">
+                    <label>USERNAME OR EMAIL</label>
+                    <input type="text" id="recoveryInput" placeholder="Enter username or email" required>
+                </div>
+                <button type="submit" class="btn-submit">Send Reset Link</button>
+            </form>
+
+            <a href="index.html" class="back-link">← Back to Login Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p style="color: #555; font-weight: 500;">Made with ❤️ by Priti Poddar</p>
+    </footer>
+
+    <script>
+        document.getElementById('recoveryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let value = document.getElementById('recoveryInput').value;
+            alert("A password validation token has been successfully dispatched to: " + value);
+            window.location.href = "index.html"; // Takes them back to login portal automatically
+        });
+    </script>
+</body>
+</html>
